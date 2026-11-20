@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#06B6D4">
+
+    <title>Aplikasi Reminder | Gudrides APP</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reminder.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+<div class="brand-logo">
+    <img src="logo.png" alt="Gudrides Logo" class="company-logo">
+</div>
+
+        <div class="sidebar-menu">
+
+            <p class="menu-label">MAIN MENU</p>
+
+            <a href="index.html" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <p class="menu-label second-label">APLIKASI</p>
+
+            <div class="menu-group">
+
+                <div class="menu-item active">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Aplikasi Reminder</span>
+                </div>
+
+                <div class="submenu">
+
+                    <a href="reminder.html" class="submenu-item active">
+                        Dashboard Reminder
+                    </a>
+
+                    <a href="#data-kebutuhan" class="submenu-item">
+                        Data Kebutuhan
+                    </a>
+
+                    <a href="#pengajuan-tanggal-1" class="submenu-item">
+                        Pengajuan Tanggal 1
+                    </a>
+
+                    <a href="#pengajuan-tanggal-15" class="submenu-item">
+                        Pengajuan Tanggal 15
+                    </a>
+
+                    <a href="#riwayat" class="submenu-item">
+                        Riwayat Pengajuan
+                    </a>
+
+                </div>
+
+            </div>
+
+            <a href="index.html" class="menu-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Aplikasi Broadcast</span>
+            </a>
+
+            <button type="button" class="menu-item menu-disabled" disabled>
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <span>Aplikasi Cashflow</span>
+                <i class="fa-solid fa-lock menu-lock"></i>
+            </button>
+
+            <p class="menu-label second-label">SYSTEM</p>
+
+            <a href="index.html" class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Pengaturan</span>
+            </a>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-user">
+                <div class="user-avatar">AD</div>
+
+                <div class="user-info">
+                    <strong id="sidebarUsername">Administrator</strong>
+                    <span>Local Account</span>
+                </div>
+
+                <button class="logout-icon" id="logoutButton" title="Logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-version">
+                Gudrides APP v1.0
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h2>Dashboard Reminder</h2>
+                <p>Kelola dan pantau kebutuhan pengajuan kantor.</p>
+            </div>
+
+            <div class="topbar-right">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    Local System Active
+                </div>
+
+                <div class="topbar-avatar">AD</div>
+            </div>
+
+        </header>
+
+        <section class="page-container">
+
+            <!-- DASHBOARD -->
+
+            <section id="dashboard-reminder">
+
+                <div class="welcome-banner">
+
+                    <div>
+                        <span class="welcome-tag">
+                            REMINDER KEBUTUHAN KANTOR
+                        </span>
+
+                        <h1>Jangan sampai ada kebutuhan yang terlupakan.</h1>
+
+                        <p>
+                            Catat kebutuhan kantor kapan saja dan kumpulkan
+                            untuk periode pengajuan tanggal 1 atau 15.
+                        </p>
+                    </div>
+
+                    <div class="welcome-icon">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+
+                </div>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-icon cyan">
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <span>Total Kebutuhan</span>
+                            <h2 id="totalKebutuhan">0</h2>
+                            <small>Seluruh kebutuhan tercatat</small>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <span>Belum Diajukan</span>
+                            <h2 id="belumDiajukan">0</h2>
+                            <small>Menunggu proses pengajuan</small>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <span>Sudah Diajukan</span>
+                            <h2 id="sudahDiajukan">0</h2>
+                            <small>Kebutuhan telah diajukan</small>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <span>Periode Berikutnya</span>
+                            <h2 id="periodeBerikutnya">-</h2>
+                            <small id="tanggalPeriode">Menunggu data</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Pengingat Pengajuan</h3>
+                        <p>Pantau kebutuhan berdasarkan periode pengajuan.</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="content-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <h3>Pengajuan Tanggal 1</h3>
+                                <p>Kebutuhan untuk periode pertama.</p>
+                            </div>
+
+                            <i class="fa-solid fa-calendar"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <h2 id="jumlahTanggal1">0</h2>
+                            <small>Total kebutuhan</small>
+                        </div>
+
+                        <a href="#pengajuan-tanggal-1" class="btn-secondary">
+                            Lihat Daftar
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="content-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <h3>Pengajuan Tanggal 15</h3>
+                                <p>Kebutuhan untuk periode kedua.</p>
+                            </div>
+
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <h2 id="jumlahTanggal15">0</h2>
+                            <small>Total kebutuhan</small>
+                        </div>
+
+                        <a href="#pengajuan-tanggal-15" class="btn-secondary">
+                            Lihat Daftar
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Akses Cepat</h3>
+                        <p>Kelola kebutuhan dan pengajuan kantor.</p>
+                    </div>
+                </div>
+
+                <div class="quick-action-grid">
+
+                    <a href="#data-kebutuhan" class="quick-action">
+                        <i class="fa-solid fa-plus-circle"></i>
+                        <div>
+                            <strong>Tambah Kebutuhan</strong>
+                            <span>Catat kebutuhan kantor baru</span>
+                        </div>
+                    </a>
+
+                    <a href="#pengajuan-tanggal-1" class="quick-action">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <div>
+                            <strong>Pengajuan Tanggal 1</strong>
+                            <span>Periksa daftar periode pertama</span>
+                        </div>
+                    </a>
+
+                    <a href="#pengajuan-tanggal-15" class="quick-action">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <div>
+                            <strong>Pengajuan Tanggal 15</strong>
+                            <span>Periksa daftar periode kedua</span>
+                        </div>
+                    </a>
+
+                    <a href="#riwayat" class="quick-action">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <div>
+                            <strong>Riwayat Pengajuan</strong>
+                            <span>Lihat catatan aktivitas</span>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Aktivitas Terbaru</h3>
+                        <p>Ringkasan perubahan kebutuhan kantor.</p>
+                    </div>
+
+                    <a href="#riwayat" class="btn-secondary">
+                        Lihat Semua
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="content-card">
+                    <div class="empty-state" id="recentActivity">
+                        <div class="empty-icon">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+
+                        <h4>Belum ada aktivitas</h4>
+
+                        <p>
+                            Aktivitas penambahan dan pengajuan kebutuhan
+                            akan muncul di sini.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- DATA KEBUTUHAN -->
+
+            <section id="data-kebutuhan" class="reminder-module-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Data Kebutuhan Kantor</h3>
+                        <p>Tambahkan kebutuhan kantor yang perlu diajukan.</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+
+                    <div class="form-header">
+                        <h3 id="formTitle">
+                            <i class="fa-solid fa-plus-circle"></i>
+                            Tambah Kebutuhan
+                        </h3>
+
+                        <p>
+                            Isi informasi kebutuhan kantor di bawah ini.
+                        </p>
+                    </div>
+
+                    <form id="needForm">
+
+                        <input type="hidden" id="needId">
+
+                        <div class="form-grid">
+
+                            <div class="form-group form-full">
+                                <label for="needName">
+                                    Nama Kebutuhan
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="needName"
+                                    placeholder="Contoh: Lampu LED, kertas A4, kabel listrik..."
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="needQuantity">
+                                    Jumlah
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="needQuantity"
+                                    min="1"
+                                    value="1"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="needUnit">
+                                    Satuan
+                                    <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="needUnit"
+                                    placeholder="Contoh: pcs, box, unit, meter"
+                                    required
+                                >
+                            </div>
+
+                            <!-- HARGA SATUAN -->
+
+                            <div class="form-group">
+                                <label for="needUnitPrice">
+                                    Harga Satuan (Rp)
+                                    <span>*</span>
+                                </label>
+
+                                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                    <span style="font-weight: 700; color: #64748b;">Rp</span>
+
+                                    <input
+                                        type="text"
+                                        id="needUnitPrice"
+                                        inputmode="numeric"
+                                        placeholder="Contoh: 120"
+                                        value="0"
+                                        required
+                                        style="flex: 1; min-width: 90px;"
+                                    >
+
+                                    <select
+                                        id="needPriceSuffix"
+                                        style="flex: 1; min-width: 100px;"
+                                    >
+                                        <option value="000">000</option>
+                                        <option value="500">500</option>
+                                        <option value="0">0</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
+
+                                <input
+                                    type="text"
+                                    id="needCustomSuffix"
+                                    inputmode="numeric"
+                                    maxlength="3"
+                                    placeholder="Masukkan 3 angka tambahan"
+                                    hidden
+                                    style="margin-top: 8px;"
+                                >
+                            </div>
+
+                            <!-- ESTIMASI TOTAL -->
+
+                            <div class="form-group">
+                                <label>Estimasi Total Biaya</label>
+
+                                <div class="price-preview" id="needTotalPreview">
+                                    Rp0
+                                </div>
+
+                                <small>Jumlah × Harga Satuan</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="needPeriod">
+                                    Periode Pengajuan
+                                    <span>*</span>
+                                </label>
+
+                                <select id="needPeriod" required>
+                                    <option value="">Pilih periode</option>
+                                    <option value="1">Pengajuan Tanggal 1</option>
+                                    <option value="15">Pengajuan Tanggal 15</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group form-full">
+                                <label for="needDescription">
+                                    Keterangan
+                                </label>
+
+                                <textarea
+                                    id="needDescription"
+                                    rows="3"
+                                    placeholder="Tambahkan keterangan jika diperlukan..."
+                                ></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+
+                            <button
+                                type="button"
+                                id="cancelEditButton"
+                                class="btn-cancel"
+                                hidden
+                            >
+                                Batal Edit
+                            </button>
+
+                            <button
+                                type="submit"
+                                id="saveNeedButton"
+                                class="btn-primary"
+                            >
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Simpan Kebutuhan
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- TABEL SELURUH KEBUTUHAN -->
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Daftar Seluruh Kebutuhan</h3>
+                        <p>Semua kebutuhan yang telah dicatat.</p>
+                    </div>
+                </div>
+
+                <div class="content-card table-card">
+
+                    <div class="table-toolbar">
+
+                        <input
+                            type="search"
+                            id="searchNeeds"
+                            placeholder="Cari nama kebutuhan..."
+                        >
+
+                        <select id="filterPeriod">
+                            <option value="all">Semua Periode</option>
+                            <option value="1">Tanggal 1</option>
+                            <option value="15">Tanggal 15</option>
+                        </select>
+
+                        <select id="filterStatus">
+                            <option value="all">Semua Status</option>
+                            <option value="pending">Belum Diajukan</option>
+                            <option value="submitted">Sudah Diajukan</option>
+                        </select>
+
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table class="needs-table">
+
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nama Kebutuhan</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga Satuan</th>
+                                    <th>Total Biaya</th>
+                                    <th>Periode</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="needsTableBody">
+                                <tr>
+                                    <td colspan="8" class="table-empty">
+                                        Belum ada data kebutuhan.
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- PENGAJUAN TANGGAL 1 -->
+
+            <section id="pengajuan-tanggal-1" class="reminder-module-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Pengajuan Tanggal 1</h3>
+                        <p>Daftar kebutuhan untuk periode tanggal 1.</p>
+                    </div>
+                </div>
+
+                <div class="content-card table-card">
+
+                    <div class="table-responsive">
+
+                        <table class="needs-table">
+
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nama Kebutuhan</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga Satuan</th>
+                                    <th>Total Biaya</th>
+                                    <th>Keterangan</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="period1TableBody">
+                                <tr>
+                                    <td colspan="8" class="table-empty">
+                                        Belum ada kebutuhan untuk periode ini.
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="period-total">
+                        <span>Total Estimasi Pengajuan Tanggal 1</span>
+                        <strong id="period1Total">Rp0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- PENGAJUAN TANGGAL 15 -->
+
+            <section id="pengajuan-tanggal-15" class="reminder-module-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Pengajuan Tanggal 15</h3>
+                        <p>Daftar kebutuhan untuk periode tanggal 15.</p>
+                    </div>
+                </div>
+
+                <div class="content-card table-card">
+
+                    <div class="table-responsive">
+
+                        <table class="needs-table">
+
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nama Kebutuhan</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga Satuan</th>
+                                    <th>Total Biaya</th>
+                                    <th>Keterangan</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="period15TableBody">
+                                <tr>
+                                    <td colspan="8" class="table-empty">
+                                        Belum ada kebutuhan untuk periode ini.
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="period-total">
+                        <span>Total Estimasi Pengajuan Tanggal 15</span>
+                        <strong id="period15Total">Rp0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RIWAYAT -->
+
+            <section id="riwayat" class="reminder-module-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Riwayat Pengajuan</h3>
+                        <p>Catatan aktivitas dan total biaya setiap pengajuan.</p>
+                    </div>
+                </div>
+
+                <div class="content-card table-card">
+
+                    <div class="table-responsive">
+
+                        <table class="needs-table">
+
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Aktivitas</th>
+                                    <th>Waktu</th>
+                                    <th>Total Biaya</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="historyTableBody">
+                                <tr>
+                                    <td colspan="4" class="table-empty">
+                                        Belum ada riwayat aktivitas.
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <!-- RINGKASAN RIWAYAT PENGAJUAN -->
+
+                    <div class="section-heading history-summary-heading">
+                        <div>
+                            <h3>Rekap Total Pengajuan</h3>
+                            <p>Total biaya berdasarkan tanggal pengajuan.</p>
+                        </div>
+                    </div>
+
+                    <div id="submissionHistoryContainer">
+                        <div class="table-empty">
+                            Belum ada riwayat pengajuan biaya.
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+        <footer class="main-footer">
+            <span>© 2026 Gudrides APP</span>
+            <span>Office Management System</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="script.js"></script>
+<script src="reminder-storage.js"></script>
+<script src="reminder.js"></script>
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1169 @@
+
+/* =========================================
+   GUDRIDES APP - REMINDER
+   Mengikuti layout utama Gudrides APP
+   ========================================= */
+
+:root {
+    --reminder-primary: #06B6D4;
+    --reminder-primary-dark: #0891B2;
+    --reminder-deep: #164E63;
+    --reminder-light: #ECFEFF;
+    --reminder-bg: #F8FAFC;
+    --reminder-text: #1E293B;
+    --reminder-muted: #64748B;
+    --reminder-border: #E2E8F0;
+}
+
+/* =========================================
+   PAGE CONTAINER
+   ========================================= */
+
+.page-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px 32px;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   WELCOME BANNER
+   ========================================= */
+
+.welcome-banner {
+    background: linear-gradient(
+        115deg,
+        #164E63 0%,
+        #087F9B 55%,
+        #06B6D4 100%
+    );
+    border-radius: 18px;
+    padding: 32px 36px;
+    min-height: 190px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 28px;
+    box-sizing: border-box;
+}
+
+.welcome-banner > div:first-child {
+    max-width: 650px;
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-tag {
+    display: inline-block;
+    color: #CFFAFE;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    margin-bottom: 13px;
+}
+
+.welcome-banner h1 {
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.3;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0 0 10px;
+}
+
+.welcome-banner p {
+    color: #E0F7FA;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 560px;
+}
+
+.welcome-icon {
+    width: 130px;
+    height: 130px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transform: rotate(-8deg);
+}
+
+.welcome-icon i {
+    font-size: 55px;
+    color: #FFFFFF;
+}
+
+/* =========================================
+   SECTION HEADING
+   ========================================= */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0 17px;
+}
+
+.section-heading h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--reminder-deep);
+    margin: 0 0 5px;
+}
+
+.section-heading p {
+    font-size: 12px;
+    color: var(--reminder-muted);
+    margin: 0;
+}
+
+/* =========================================
+   SUMMARY CARDS
+   ========================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: #FFFFFF;
+    border: 1px solid var(--reminder-border);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+    transition: 0.2s ease;
+    box-sizing: border-box;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.stat-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon i {
+    font-size: 19px;
+}
+
+.stat-icon.cyan {
+    background: #CFFAFE;
+    color: #0891B2;
+}
+
+.stat-icon.orange {
+    background: #FFEDD5;
+    color: #EA580C;
+}
+
+.stat-icon.green {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.stat-icon.purple {
+    background: #F3E8FF;
+    color: #9333EA;
+}
+
+.stat-information {
+    min-width: 0;
+}
+
+.stat-information > span {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--reminder-muted);
+    margin-bottom: 8px;
+}
+
+.stat-information h2 {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--reminder-deep);
+    margin: 0 0 5px;
+    line-height: 1.2;
+}
+
+.stat-information small {
+    display: block;
+    font-size: 10px;
+    color: var(--reminder-muted);
+    line-height: 1.5;
+}
+
+/* =========================================
+   DASHBOARD PERIOD CARDS
+   ========================================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+    margin-bottom: 30px;
+}
+
+.content-card {
+    background: #FFFFFF;
+    border: 1px solid var(--reminder-border);
+    border-radius: 16px;
+    padding: 22px;
+    min-width: 0;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+.content-card:hover {
+    border-color: #A5F3FC;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.card-heading h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--reminder-deep);
+    margin: 0 0 7px;
+}
+
+.card-heading p {
+    font-size: 12px;
+    color: var(--reminder-muted);
+    margin: 0;
+}
+
+.card-heading > i {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    background: var(--reminder-light);
+    color: var(--reminder-primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+}
+
+.content-card .stat-information h2 {
+    font-size: 30px;
+}
+
+/* =========================================
+   SECONDARY BUTTON
+   ========================================= */
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: 1px solid #A5F3FC;
+    border-radius: 9px;
+    background: var(--reminder-light);
+    color: var(--reminder-primary-dark);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #CFFAFE;
+    border-color: var(--reminder-primary);
+}
+
+.btn-secondary i {
+    font-size: 12px;
+}
+
+/* =========================================
+   QUICK ACTION
+   ========================================= */
+
+.quick-action-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+    margin-bottom: 30px;
+}
+
+.quick-action {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--reminder-border);
+    border-radius: 14px;
+    padding: 17px;
+    text-decoration: none;
+    transition: 0.2s ease;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.quick-action:hover {
+    border-color: #67E8F9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.quick-action > i {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--reminder-light);
+    color: var(--reminder-primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+}
+
+.quick-action > div {
+    min-width: 0;
+}
+
+.quick-action strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--reminder-deep);
+    margin-bottom: 5px;
+}
+
+.quick-action span {
+    display: block;
+    font-size: 11px;
+    color: var(--reminder-muted);
+    line-height: 1.5;
+}
+
+/* =========================================
+   EMPTY STATE / RECENT ACTIVITY
+   ========================================= */
+
+.empty-state {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.empty-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #F1F5F9;
+    color: #94A3B8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.empty-icon i {
+    font-size: 22px;
+}
+
+.empty-state h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--reminder-deep);
+    margin: 0 0 6px;
+}
+
+.empty-state p {
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--reminder-muted);
+    max-width: 300px;
+    margin: 0;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.main-footer {
+    border-top: 1px solid var(--reminder-border);
+    padding: 19px 32px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--reminder-muted);
+    font-size: 11px;
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+    .page-container {
+        padding: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .page-container {
+        padding: 18px;
+    }
+
+    .welcome-banner {
+        padding: 24px;
+        min-height: auto;
+    }
+
+    .welcome-banner h1 {
+        font-size: 22px;
+    }
+
+    .welcome-icon {
+        width: 75px;
+        height: 75px;
+        border-radius: 20px;
+    }
+
+    .welcome-icon i {
+        font-size: 34px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 14px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stat-information h2 {
+        font-size: 24px;
+    }
+
+    .dashboard-grid,
+    .quick-action-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h3 {
+        font-size: 15px;
+    }
+
+    .main-footer {
+        padding: 18px;
+        flex-direction: column;
+    }
+
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    .welcome-icon {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   REMINDER - FORM DAN TABEL
+   ========================================= */
+
+.reminder-module-section {
+    margin-top: 40px;
+    scroll-margin-top: 25px;
+}
+
+.form-header {
+    margin-bottom: 22px;
+}
+
+.form-header h3 {
+    color: #164E63;
+    font-size: 17px;
+    font-weight: 800;
+    margin: 0 0 7px;
+}
+
+.form-header h3 i {
+    color: #0891B2;
+    margin-right: 7px;
+}
+
+.form-header p {
+    color: #64748B;
+    font-size: 12px;
+    margin: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #164E63;
+}
+
+.form-group label span {
+    color: #DC2626;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #E2E8F0;
+    border-radius: 9px;
+    background: #FFFFFF;
+    color: #1E293B;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #06B6D4;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.10);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 85px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.btn-primary,
+.btn-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: #06B6D4;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: #0891B2;
+}
+
+.btn-cancel {
+    background: #F1F5F9;
+    color: #475569;
+}
+
+.btn-cancel:hover {
+    background: #E2E8F0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   TABLE TOOLBAR
+   ========================================= */
+
+.table-card {
+    overflow: hidden;
+}
+
+.table-toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.table-toolbar input,
+.table-toolbar select {
+    min-height: 40px;
+    padding: 9px 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #475569;
+    font-family: inherit;
+    font-size: 11px;
+    outline: none;
+}
+
+.table-toolbar input {
+    flex: 1;
+    min-width: 180px;
+}
+
+.table-toolbar input:focus,
+.table-toolbar select:focus {
+    border-color: #06B6D4;
+}
+
+/* =========================================
+   TABLE
+   ========================================= */
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.needs-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+}
+
+.needs-table th {
+    padding: 14px 12px;
+    background: #F8FAFC;
+    color: #64748B;
+    font-size: 10px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.needs-table td {
+    padding: 14px 12px;
+    color: #475569;
+    font-size: 11px;
+    border-bottom: 1px solid #F1F5F9;
+    vertical-align: middle;
+}
+
+.needs-table td strong {
+    color: #164E63;
+    font-weight: 700;
+}
+
+.needs-table tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.table-empty {
+    text-align: center !important;
+    padding: 35px 15px !important;
+    color: #94A3B8 !important;
+}
+
+.table-empty i {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 9px;
+}
+
+.table-empty p {
+    margin: 0;
+}
+
+/* =========================================
+   STATUS BADGE
+   ========================================= */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-badge.pending {
+    background: #FFF7ED;
+    color: #C2410C;
+}
+
+.status-badge.submitted {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+
+/* =========================================
+   TABLE ACTIONS - IMPROVED UI
+   ========================================= */
+
+.needs-table td .table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+    min-width: 105px;
+}
+
+.needs-table td .table-actions .action-btn {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    min-height: 32px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.needs-table td .table-actions .action-btn i {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 1;
+}
+
+.needs-table td .table-actions .edit-btn {
+    background: #E0F2FE;
+    color: #0284C7;
+    border-color: #BAE6FD;
+}
+
+.needs-table td .table-actions .status-btn {
+    background: #DCFCE7;
+    color: #15803D;
+    border-color: #BBF7D0;
+}
+
+.needs-table td .table-actions .delete-btn {
+    background: #FEE2E2;
+    color: #DC2626;
+    border-color: #FECACA;
+}
+
+.needs-table td .table-actions .action-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.96);
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.10);
+}
+
+.needs-table td .table-actions .action-btn:active {
+    transform: scale(0.95);
+}
+
+.needs-table td .table-actions .action-btn:focus-visible {
+    outline: 2px solid #06B6D4;
+    outline-offset: 2px;
+}
+
+
+/* =========================================
+   HISTORY
+   ========================================= */
+
+.history-description {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #164E63;
+    font-weight: 600;
+}
+
+.history-description i {
+    color: #0891B2;
+}
+
+.recent-activity-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 12px 0;
+    border-bottom: 1px solid #F1F5F9;
+    text-align: left;
+}
+
+.recent-activity-item:last-child {
+    border-bottom: none;
+}
+
+.recent-activity-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #ECFEFF;
+    color: #0891B2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.recent-activity-item strong {
+    display: block;
+    color: #164E63;
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.recent-activity-item small {
+    color: #94A3B8;
+    font-size: 10px;
+}
+
+/* =========================================
+   RESPONSIVE FORM DAN TABLE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-full {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .table-toolbar {
+        flex-direction: column;
+    }
+
+    .table-toolbar input,
+    .table-toolbar select {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   REKAP TOTAL PENGAJUAN
+   ========================================= */
+
+.history-summary-heading {
+    margin-bottom: 18px;
+}
+
+#submissionHistoryContainer {
+    width: 100%;
+}
+
+/* Kartu pembungkus rekap */
+
+#submissionHistoryContainer .table-card {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+/* Area tabel */
+
+#submissionHistoryContainer .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#submissionHistoryContainer table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Header tabel */
+
+#submissionHistoryContainer thead th {
+    padding: 16px 14px;
+    background: #ECFEFF;
+    color: #164E63;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid #CFFAFE;
+}
+
+/* Isi tabel */
+
+#submissionHistoryContainer tbody td {
+    padding: 15px 14px;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.6;
+    vertical-align: top;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+#submissionHistoryContainer tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#submissionHistoryContainer tbody tr:hover {
+    background: #F8FAFC;
+}
+
+/* Kolom nomor */
+
+#submissionHistoryContainer th:first-child,
+#submissionHistoryContainer td:first-child {
+    width: 55px;
+    text-align: center;
+}
+
+/* Kolom tanggal */
+
+#submissionHistoryContainer tbody td:nth-child(2) {
+    min-width: 145px;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* Kolom periode */
+
+#submissionHistoryContainer tbody td:nth-child(3) {
+    min-width: 110px;
+    white-space: nowrap;
+}
+
+/* Kolom jumlah item */
+
+#submissionHistoryContainer tbody td:nth-child(4) {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Kolom rincian kebutuhan */
+
+#submissionHistoryContainer tbody td:nth-child(5) {
+    min-width: 230px;
+}
+
+/* Rincian setiap kebutuhan */
+
+#submissionHistoryContainer .history-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px 10px;
+    margin-bottom: 7px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+}
+
+#submissionHistoryContainer .history-item:last-child {
+    margin-bottom: 0;
+}
+
+#submissionHistoryContainer .history-item strong {
+    color: #164E63;
+    font-size: 12px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+#submissionHistoryContainer .history-item small {
+    color: #64748B;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Kolom total biaya */
+
+#submissionHistoryContainer tbody td:nth-child(6) {
+    min-width: 190px;
+    color: #0891B2;
+    font-weight: 700;
+    white-space: normal;
+}
+
+#submissionHistoryContainer tbody td:nth-child(6) strong {
+    display: inline-block;
+    font-size: 13px;
+}
+
+/* Kolom aksi */
+
+#submissionHistoryContainer tbody td:last-child {
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#submissionHistoryContainer .btn.btn-danger.btn-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 11px;
+    background: #FEF2F2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#submissionHistoryContainer .btn.btn-danger.btn-sm:hover {
+    background: #DC2626;
+    color: #ffffff;
+    border-color: #DC2626;
+}
+
+#submissionHistoryContainer .btn.btn-danger.btn-sm i {
+    font-size: 12px;
+}
+
+/* Tampilan ketika belum ada riwayat */
+
+#submissionHistoryContainer > .empty-state {
+    padding: 35px 20px;
+    background: #ffffff;
+    border: 1px dashed #CBD5E1;
+    border-radius: 12px;
+    color: #94A3B8;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* =========================================
+   RESPONSIVE REKAP PENGAJUAN
+   ========================================= */
+
+@media (max-width: 768px) {
+    #submissionHistoryContainer .table-card {
+        border-radius: 10px;
+    }
+
+    #submissionHistoryContainer table {
+        min-width: 900px;
+    }
+
+    #submissionHistoryContainer thead th {
+        padding: 13px 11px;
+        font-size: 11px;
+    }
+
+    #submissionHistoryContainer tbody td {
+        padding: 12px 11px;
+        font-size: 12px;
+    }
+
+    #submissionHistoryContainer .history-item {
+        padding: 7px 9px;
+    }
+
+    #submissionHistoryContainer .history-item strong {
+        font-size: 11px;
+    }
+
+    #submissionHistoryContainer .history-item small {
+        font-size: 10px;
+    }
+}
+

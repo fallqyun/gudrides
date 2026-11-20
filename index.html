@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#06B6D4">
+
+    <title>Gudrides APP | Office Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand-logo">
+    <img src="logo.png" alt="Gudrides Logo" class="company-logo">
+</div>
+
+        <div class="sidebar-menu">
+
+            <p class="menu-label">MAIN MENU</p>
+
+            <button class="menu-item active" data-page="dashboard">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </button>
+
+            <p class="menu-label second-label">APLIKASI</p>
+
+            <!-- APLIKASI BROADCAST -->
+            <div class="menu-group">
+
+                <button
+                    type="button"
+                    class="menu-item menu-parent"
+                    id="broadcastMenuToggle"
+                    aria-expanded="false"
+                    aria-controls="broadcastSubmenu"
+                    title="Aplikasi Broadcast"
+                >
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Aplikasi Broadcast</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </button>
+
+                <div class="submenu" id="broadcastSubmenu" hidden>
+
+                    <button
+                        type="button"
+                        class="submenu-item"
+                        data-page="contacts"
+                        title="Manajemen Kontak"
+                    >
+                        <i class="fa-solid fa-address-book"></i>
+                        <span>Manajemen Kontak</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="submenu-item"
+                        data-page="template"
+                        title="Template Pesan"
+                    >
+                        <i class="fa-solid fa-message"></i>
+                        <span>Template Pesan</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="submenu-item"
+                        data-page="broadcast"
+                        title="Broadcast Center"
+                    >
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Broadcast Center</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="submenu-item"
+                        data-page="history"
+                        title="Riwayat Broadcast"
+                    >
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Riwayat Broadcast</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- APLIKASI REMINDER KEBUTUHAN KANTOR -->
+            <a
+                href="reminder.html"
+                class="menu-item"
+                title="Aplikasi Reminder Kebutuhan Kantor"
+            >
+                <i class="fa-solid fa-bell"></i>
+                <span>Aplikasi Reminder</span>
+            </a>
+
+            <!-- APLIKASI CASHFLOW -->
+            <button
+                type="button"
+                class="menu-item menu-disabled"
+                disabled
+                title="Aplikasi Cashflow - Segera Hadir"
+            >
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <span>Aplikasi Cashflow</span>
+                <i class="fa-solid fa-lock menu-lock"></i>
+            </button>
+
+            <p class="menu-label second-label">SYSTEM</p>
+
+            <button class="menu-item" data-page="settings">
+                <i class="fa-solid fa-gear"></i>
+                <span>Pengaturan</span>
+            </button>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-user">
+                <div class="user-avatar">AD</div>
+
+                <div class="user-info">
+                    <strong id="sidebarUsername">Administrator</strong>
+                    <span>Local Account</span>
+                </div>
+
+                <button class="logout-icon" id="logoutButton" title="Logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-version">
+                Gudrides APP v1.0
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <h2 id="pageTitle">Dashboard</h2>
+                <p id="pageSubtitle">Selamat datang di Gudrides APP.</p>
+            </div>
+
+            <div class="topbar-right">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    Local System Active
+                </div>
+
+                <div class="topbar-avatar">AD</div>
+            </div>
+
+        </header>
+
+
+        <section class="page-container">
+
+            <!-- =====================================
+                 MAIN DASHBOARD
+            ====================================== -->
+
+            <div class="page-section active" id="page-dashboard">
+
+                <div class="welcome-banner">
+                    <div>
+                        <span class="welcome-tag">OFFICE MANAGEMENT SYSTEM</span>
+                        <h1>Welcome to Gudrides APP!</h1>
+                        <p>
+                            Satu tempat untuk mengelola berbagai kebutuhan
+                            operasional dan administrasi Gudrides.
+                        </p>
+                    </div>
+
+                    <div class="welcome-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                </div>
+
+
+                <!-- APPLICATION MODULES -->
+
+                <div class="section-heading">
+                    <div>
+                        <h3>Aplikasi</h3>
+                        <p>Pilih aplikasi yang ingin kamu gunakan.</p>
+                    </div>
+                </div>
+
+
+                <div class="app-modules-grid">
+
+                    <!-- BROADCAST MODULE -->
+                    <button
+                        type="button"
+                        class="app-module-card"
+                        data-page="broadcast"
+                    >
+                        <div class="app-module-icon cyan">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+
+                        <div class="app-module-content">
+                            <span class="app-module-status active-status">
+                                <span></span>
+                                Available
+                            </span>
+
+                            <h3>Aplikasi Broadcast</h3>
+
+                            <p>
+                                Kelola kontak dan aktivitas pengiriman
+                                pesan WhatsApp.
+                            </p>
+                        </div>
+
+                        <div class="app-module-footer">
+                            <span>Buka Aplikasi</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </button>
+
+
+                    <!-- REMINDER MODULE -->
+                    <a
+                        href="reminder.html"
+                        class="app-module-card"
+                        style="text-decoration: none; color: inherit;"
+                    >
+
+                        <div class="app-module-icon cyan">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+                        <div class="app-module-content">
+                            <span class="app-module-status active-status">
+                                <span></span>
+                                Available
+                            </span>
+
+                            <h3>Aplikasi Reminder</h3>
+
+                            <p>
+                                Catat kebutuhan kantor dan pantau jadwal
+                                pengajuan setiap tanggal 1 dan 15.
+                            </p>
+                        </div>
+
+                        <div class="app-module-footer">
+                            <span>Buka Aplikasi</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+
+                    </a>
+
+
+                    <!-- CASHFLOW MODULE -->
+                    <div class="app-module-card coming-soon-card">
+
+                        <div class="app-module-icon green">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                        </div>
+
+                        <div class="app-module-content">
+                            <span class="app-module-status coming-status">
+                                Coming Soon
+                            </span>
+
+                            <h3>Aplikasi Cashflow</h3>
+
+                            <p>
+                                Catat pemasukan, pengeluaran,
+                                dan laporan arus kas.
+                            </p>
+                        </div>
+
+                        <div class="app-module-footer">
+                            <span>Segera Hadir</span>
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BROADCAST OVERVIEW -->
+
+                <div class="section-heading dashboard-subheading">
+                    <div>
+                        <h3>Broadcast Overview</h3>
+                        <p>Ringkasan aktivitas Aplikasi Broadcast.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        data-page="broadcast"
+                    >
+                        Buka Broadcast
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-icon cyan">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <span>Total Kontak</span>
+                            <h2 id="totalContacts">0</h2>
+                            <small>Kontak tersimpan</small>
+                        </div>
+                    </div>
+
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <span>Pesan Terkirim</span>
+                            <h2 id="totalSent">0</h2>
+                            <small>Ditandai berhasil dikirim</small>
+                        </div>
+                    </div>
+
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <span>Belum Diproses</span>
+                            <h2 id="totalPending">0</h2>
+                            <small>Kontak menunggu</small>
+                        </div>
+                    </div>
+
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fa-solid fa-message"></i>
+                        </div>
+
+                        <div class="stat-information">
+                            <span>Template Pesan</span>
+                            <h2 id="totalTemplates">0</h2>
+                            <small>Template tersimpan</small>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- DASHBOARD ACTIVITY -->
+
+                <div class="dashboard-grid">
+
+                    <div class="content-card activity-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <h3>Aktivitas Terbaru</h3>
+                                <p>Riwayat aktivitas broadcast.</p>
+                            </div>
+
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-inbox"></i>
+                            </div>
+
+                            <h4>Belum ada aktivitas</h4>
+                            <p>
+                                Aktivitas broadcast akan muncul
+                                di halaman riwayat.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="content-card quick-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <h3>Quick Access</h3>
+                                <p>Akses fitur Broadcast dengan cepat.</p>
+                            </div>
+                        </div>
+
+                        <button class="quick-action" data-page="contacts">
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-file-excel"></i>
+                            </div>
+
+                            <div>
+                                <strong>Import Kontak</strong>
+                                <span>Upload database Excel</span>
+                            </div>
+
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </button>
+
+
+                        <button class="quick-action" data-page="template">
+                            <div class="quick-icon">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </div>
+
+                            <div>
+                                <strong>Buat Template</strong>
+                                <span>Siapkan pesan broadcast</span>
+                            </div>
+
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </button>
+
+
+                        <button class="quick-action" data-page="broadcast">
+                            <div class="quick-icon">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+
+                            <div>
+                                <strong>Mulai Broadcast</strong>
+                                <span>Buka Broadcast Center</span>
+                            </div>
+
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 CONTACT MANAGEMENT
+            ====================================== -->
+
+            <div class="page-section" id="page-contacts">
+
+                <div class="contact-page-header">
+
+                    <div>
+                        <h2>Contact Management</h2>
+                        <p>Import dan kelola database kontak WhatsApp Anda.</p>
+                    </div>
+
+                    <label for="excelFile" class="btn-primary import-button">
+                        <i class="fa-solid fa-file-import"></i>
+                        Import Excel
+                    </label>
+
+                    <input
+                        type="file"
+                        id="excelFile"
+                        accept=".xlsx,.xls"
+                        hidden
+                    >
+
+                </div>
+
+
+                <div class="content-card import-card">
+
+                    <div class="import-card-icon">
+                        <i class="fa-solid fa-file-excel"></i>
+                    </div>
+
+                    <div class="import-card-content">
+                        <h3>Import Database Kontak</h3>
+
+                        <p>
+                            Upload file Excel yang memiliki kolom
+                            <strong>Nama</strong> dan
+                            <strong>Nomor HP</strong>.
+                        </p>
+
+                        <div class="import-file-info">
+                            <span><i class="fa-solid fa-check"></i> XLSX</span>
+                            <span><i class="fa-solid fa-check"></i> XLS</span>
+                            <span><i class="fa-solid fa-check"></i> Duplicate Skip</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div id="importStatus" class="import-status" aria-live="polite"></div>
+
+
+                <div class="contact-summary">
+
+                    <div class="content-card summary-card">
+                        <span>Total Kontak</span>
+                        <strong id="contactCount">0</strong>
+                    </div>
+
+                    <div class="content-card summary-card">
+                        <span>Kontak Saat Ini</span>
+                        <strong id="currentContactNumber">0 / 0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="content-card contact-viewer">
+
+                    <div class="card-heading">
+                        <div>
+                            <h3>Contact Viewer</h3>
+                            <p>Menampilkan satu kontak pada satu waktu.</p>
+                        </div>
+
+                        <span class="viewer-badge">CONTACT DATABASE</span>
+                    </div>
+
+
+                    <div class="contact-table-wrapper">
+
+                        <table class="contact-table">
+                            <thead>
+                                <tr>
+                                    <th>NO.</th>
+                                    <th>NAMA KONTAK</th>
+                                    <th>NOMOR WHATSAPP</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="contactTableBody">
+                                <tr>
+                                    <td colspan="3" class="table-empty">
+                                        Belum ada kontak. Silakan upload Excel.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                    <div class="contact-navigation">
+
+                        <button
+                            class="btn-secondary"
+                            id="previousContact"
+                            disabled
+                        >
+                            <i class="fa-solid fa-chevron-left"></i>
+                            Previous
+                        </button>
+
+                        <div class="contact-position" id="contactPosition">
+                            0 / 0
+                        </div>
+
+                        <button
+                            class="btn-primary next-contact-button"
+                            id="nextContact"
+                            disabled
+                        >
+                            Next
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 MESSAGE TEMPLATE
+            ====================================== -->
+
+            <div class="page-section" id="page-template">
+
+                <div class="contact-page-header">
+                    <div>
+                        <h2>Message Template</h2>
+                        <p>Buat satu template pesan untuk seluruh kontak.</p>
+                    </div>
+                </div>
+
+
+                <div class="template-layout">
+
+                    <div class="template-editor-card">
+
+                        <div class="template-card-heading">
+                            <div>
+                                <h3>Template Pesan</h3>
+                                <p>Gunakan variabel untuk menyesuaikan nama penerima.</p>
+                            </div>
+                        </div>
+
+
+                        <label class="template-label" for="templateMessage">
+                            Isi Pesan
+                        </label>
+
+                        <textarea
+                            id="templateMessage"
+                            class="template-textarea"
+                            placeholder="Contoh: Assalamu'alaikum {{nama}}, kami ingin menyampaikan informasi..."
+                            rows="9"
+                        ></textarea>
+
+
+                        <div class="template-variable-info">
+                            <span class="variable-code">{{nama}}</span>
+                            <span>Otomatis diganti dengan nama kontak.</span>
+                        </div>
+
+
+                        <div class="template-divider"></div>
+
+
+                        <div class="template-actions">
+                            <button
+                                type="button"
+                                id="saveTemplateButton"
+                                class="btn-primary"
+                            >
+                                Simpan Template
+                            </button>
+                        </div>
+
+                        <p id="templateStatus" class="import-status" aria-live="polite"></p>
+
+                    </div>
+
+
+                    <div class="template-preview-card">
+
+                        <div class="template-card-heading">
+                            <div>
+                                <h3>Live Preview</h3>
+                                <p>Contoh tampilan pesan setelah nama diganti.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="preview-contact">
+                            <div class="preview-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+
+                            <div>
+                                <strong id="previewContactName">Contoh Kontak</strong>
+                                <span>Preview penerima</span>
+                            </div>
+                        </div>
+
+
+                        <div class="whatsapp-preview">
+                            <div id="previewMessage" class="whatsapp-preview-message">
+                                Pesan kamu akan muncul di sini.
+                            </div>
+
+                            <div class="preview-time">Preview</div>
+                        </div>
+
+
+                        <p class="preview-note">
+                            Preview ini hanya simulasi.
+                            Pesan belum dikirim ke WhatsApp.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 BROADCAST CENTER
+            ====================================== -->
+
+            <div class="page-section" id="page-broadcast">
+
+                <div class="contact-page-header">
+                    <div>
+                        <h2>Broadcast Center</h2>
+                        <p>Kirim pesan secara bertahap ke kontak yang tersimpan.</p>
+                    </div>
+                </div>
+
+
+                <div class="broadcast-progress-card">
+
+                    <div class="broadcast-progress-top">
+                        <div>
+                            <span class="broadcast-small-label">PROGRES KONTAK</span>
+                            <h3 id="broadcastProgressText">0 dari 0 kontak</h3>
+                        </div>
+
+                        <div class="broadcast-progress-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                    </div>
+
+                    <div class="broadcast-progress-track">
+                        <div id="broadcastProgressBar" class="broadcast-progress-fill"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="broadcast-layout">
+
+                    <div class="broadcast-contact-card">
+
+                        <div class="broadcast-card-heading">
+                            <h3>Kontak Saat Ini</h3>
+                            <span id="broadcastContactIndex">0 / 0</span>
+                        </div>
+
+
+                        <div class="broadcast-contact-info">
+
+                            <div class="broadcast-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+
+                            <div class="broadcast-contact-details">
+                                <h3 id="broadcastContactName">Belum ada kontak</h3>
+                                <p id="broadcastContactPhone">Impor kontak terlebih dahulu</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="broadcast-contact-actions">
+
+                            <button
+                                type="button"
+                                id="broadcastPrevious"
+                                class="btn-secondary"
+                            >
+                                <i class="fas fa-chevron-left"></i>
+                                Sebelumnya
+                            </button>
+
+                            <button
+                                type="button"
+                                id="broadcastNext"
+                                class="next-contact-button"
+                            >
+                                Berikutnya
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                        </div>
+
+
+                        <div id="broadcastEmpty" class="broadcast-empty" hidden>
+                            <i class="fas fa-address-book"></i>
+                            <p>
+                                Belum ada kontak. Silakan impor Excel
+                                melalui menu Manajemen Kontak.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="broadcast-message-card">
+
+                        <div class="broadcast-card-heading">
+                            <h3>Pesan Personal</h3>
+                            <span class="broadcast-template-badge">Template Default</span>
+                        </div>
+
+
+                        <label class="template-label" for="broadcastMessagePreview">
+                            Pesan untuk kontak ini
+                        </label>
+
+                        <textarea
+                            id="broadcastMessagePreview"
+                            class="template-textarea broadcast-message-textarea"
+                            rows="9"
+                            readonly
+                            placeholder="Pesan akan muncul setelah template disimpan."
+                        ></textarea>
+
+
+                        <div class="broadcast-message-actions">
+
+                            <button
+                                type="button"
+                                id="copyBroadcastMessage"
+                                class="btn-secondary"
+                            >
+                                <i class="fas fa-copy"></i>
+                                Salin Pesan
+                            </button>
+
+                            <button
+                                type="button"
+                                id="openBroadcastWhatsApp"
+                                class="btn-primary"
+                            >
+                                <i class="fab fa-whatsapp"></i>
+                                Buka WhatsApp
+                            </button>
+
+                        </div>
+
+
+                        <div class="broadcast-record-actions">
+
+                            <p>
+                                Setelah memeriksa hasil pengiriman di WhatsApp:
+                            </p>
+
+                            <button
+                                type="button"
+                                id="markBroadcastSent"
+                                class="record-sent-button"
+                            >
+                                <i class="fas fa-check-circle"></i>
+                                Tandai Berhasil Dikirim
+                            </button>
+
+                            <button
+                                type="button"
+                                id="markBroadcastFailed"
+                                class="record-failed-button"
+                            >
+                                <i class="fas fa-exclamation-circle"></i>
+                                Tandai Gagal
+                            </button>
+
+                        </div>
+
+
+                        <p id="broadcastStatus" class="import-status" aria-live="polite"></p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="broadcast-guide">
+
+                    <div class="broadcast-guide-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+
+                    <div>
+                        <strong>Alur pengiriman</strong>
+                        <p>
+                            Buka WhatsApp, periksa penerima dan isi pesan,
+                            lalu tekan tombol kirim di WhatsApp.
+                            Setelah itu, catat status pengiriman dan lanjutkan
+                            ke kontak berikutnya.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 BROADCAST HISTORY
+            ====================================== -->
+
+            <div class="page-section" id="page-history">
+
+                <div class="contact-page-header">
+                    <div>
+                        <h2>Riwayat Broadcast</h2>
+                        <p>Catatan kontak yang sudah diproses melalui Broadcast Center.</p>
+                    </div>
+
+                    <button type="button" id="refreshHistory" class="btn-secondary">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                </div>
+
+
+                <div class="history-summary-grid">
+
+                    <div class="history-summary-card">
+                        <span>Total Riwayat</span>
+                        <strong id="historyTotal">0</strong>
+                    </div>
+
+                    <div class="history-summary-card">
+                        <span>Berhasil Dikirim</span>
+                        <strong id="historySent">0</strong>
+                    </div>
+
+                    <div class="history-summary-card">
+                        <span>Gagal</span>
+                        <strong id="historyFailed">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="history-table-card">
+
+                    <div class="history-table-heading">
+                        <h3>Daftar Aktivitas</h3>
+
+                        <select id="historyFilter" class="history-filter">
+                            <option value="all">Semua Status</option>
+                            <option value="sent">Berhasil Dikirim</option>
+                            <option value="failed">Gagal</option>
+                        </select>
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="contact-table history-table">
+
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nama Kontak</th>
+                                    <th>Nomor HP</th>
+                                    <th>Status</th>
+                                    <th>Waktu</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="historyTableBody">
+                                <tr>
+                                    <td colspan="5" class="history-empty-cell">
+                                        Belum ada riwayat broadcast.
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="history-footer">
+                        <span id="historyCountLabel">Menampilkan 0 riwayat</span>
+
+                        <button
+                            type="button"
+                            id="clearHistoryButton"
+                            class="btn-clear-history"
+                        >
+                            Hapus Semua Riwayat
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 SETTINGS
+            ====================================== -->
+
+            <div class="page-section" id="page-settings">
+
+                <div class="contact-page-header">
+                    <div>
+                        <h2>Pengaturan</h2>
+                        <p>Kelola data Aplikasi Broadcast Gudrides.</p>
+                    </div>
+                </div>
+
+
+                <div class="settings-data-summary">
+
+                    <h3>Ringkasan Database</h3>
+
+                    <div class="settings-summary-row">
+                        <span>Total Kontak</span>
+                        <strong id="settingsContactCount">0</strong>
+                    </div>
+
+                    <div class="settings-summary-row">
+                        <span>Total Riwayat</span>
+                        <strong id="settingsHistoryCount">0</strong>
+                    </div>
+
+                    <div class="settings-summary-row">
+                        <span>Template Tersimpan</span>
+                        <strong id="settingsTemplateStatus">Belum ada</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="settings-card settings-danger-card reset-data-card">
+
+                    <div class="settings-card-icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+
+                    <h3>Reset Semua Data</h3>
+
+                    <p>
+                        Hapus seluruh kontak, template pesan,
+                        dan riwayat broadcast dari browser ini.
+                        Data yang dihapus tidak dapat dipulihkan.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="resetDatabaseButton"
+                        class="btn-danger"
+                    >
+                        <i class="fas fa-trash-alt"></i>
+                        Reset Semua Data
+                    </button>
+
+                    <p id="settingsStatus" class="import-status" aria-live="polite"></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <span>© 2026 Gudrides APP</span>
+            <span>Office Management System</span>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<script src="storage.js"></script>
+<script src="contacts.js"></script>
+<script src="template.js"></script>
+<script src="broadcast.js"></script>
+<script src="history.js"></script>
+<script src="settings.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
